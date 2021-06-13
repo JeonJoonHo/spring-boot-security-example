@@ -10,5 +10,9 @@
     <p th:text="${foo}">foo</p>
 
     <p th:text="${message}"></p>
+
+    <div th:object="${user}">
+        <p th:text="${user.nickname}"></p>님 안녕하세요.
+    </div>
 </body>
 </html>

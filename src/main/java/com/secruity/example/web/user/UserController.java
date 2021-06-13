@@ -19,6 +19,8 @@ public class UserController {
 
         redirectAttributes.addFlashAttribute("message", newUser.getNickname() + "님 환영합니다.");
 
+        userService.login(newUser);
+
         return "redirect:/";
     }
 
