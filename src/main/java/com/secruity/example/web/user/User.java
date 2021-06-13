@@ -19,7 +19,7 @@ public class User {
     private String email;
 
     @Column(unique = true)
-    private String displayName;
+    private String nickname;
 
     private String password;
 }
