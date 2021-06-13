@@ -11,17 +11,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     @PostMapping("/sign-up")
     public String signUp(SignUpForm signUpForm, RedirectAttributes redirectAttributes) {
-        User user = User.builder()
-                .nickname(signUpForm.getNickname())
-                .email(signUpForm.getEmail())
-                .password(signUpForm.getPassword())
-                .build();
-
-        User newUser = userRepository.save(user);
+        User newUser = userService.createNewUser(signUpForm);
 
         redirectAttributes.addFlashAttribute("message", newUser.getNickname() + "님 환영합니다.");
 
